@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 419 Error Logging</title>
+</head>
+<body>
+    <h1>Test CSRF Error Logging</h1>
+    <p>This will intentionally trigger a 419 error to test logging.</p>
+    
+    <form method="POST" action="/admin/login">
+        <!-- Intentionally wrong or missing CSRF token -->
+        <input type="hidden" name="_token" value="INVALID_TOKEN_FOR_TESTING">
+        
+        <input type="text" name="username" value="admin" placeholder="Username">
+        <input type="password" name="password" value="admin123" placeholder="Password">
+        
+        <button type="submit">Submit (Will cause 419)</button>
+    </form>
+    
+    <hr>
+    <p><a href="/admin/login">Go to real login page</a></p>
+</body>
+</html>

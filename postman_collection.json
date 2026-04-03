@@ -1,0 +1,118 @@
+{
+  "info": {
+    "name": "Voucher Internet System API",
+    "description": "API Collection for Voucher Internet System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/health",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "health"]
+        }
+      }
+    },
+    {
+      "name": "Get All Packages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/packages",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "packages"]
+        }
+      }
+    },
+    {
+      "name": "Get Package Detail",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/packages/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "packages", "1"]
+        }
+      }
+    },
+    {
+      "name": "Create Transaction",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"package_id\": 1,\n  \"customer_name\": \"John Doe\",\n  \"customer_email\": \"john@example.com\",\n  \"customer_phone\": \"08123456789\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/transactions",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "transactions"]
+        }
+      }
+    },
+    {
+      "name": "Get Transaction Detail",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/transactions/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "transactions", "1"]
+        }
+      }
+    },
+    {
+      "name": "Get Transaction Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/transactions/1/status",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "transactions", "1", "status"]
+        }
+      }
+    },
+    {
+      "name": "Payment Callback (Midtrans)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"order_id\": \"VO-20260402123456-ABC123\",\n  \"transaction_status\": \"settlement\",\n  \"fraud_status\": \"accept\",\n  \"payment_type\": \"credit_card\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/payment/callback",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "payment", "callback"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}
