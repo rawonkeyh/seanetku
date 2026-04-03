@@ -1,0 +1,2 @@
+# seanetku
+internet mikrotik
